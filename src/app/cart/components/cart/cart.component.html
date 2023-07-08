@@ -1,0 +1,51 @@
+<div class="w-75 my-5 m-auto d-flex justify-content-center align-items-center border border-light border-3 ">
+  <div class="w-100 py-3 px-3 row">
+    <h1 class="text-danger px-0 col-md-12">Shopping Cart</h1>
+    <div class="col-md-12 d-flex justify-content-between align-items-center">
+      <h5 class="pb-4 accordion-body">You have  <span class="text-danger">{{cartProduct.length}}</span> in your cart</h5>
+      <button class="text-danger p-1 " (click)="clearCart()">Clear shopping cart</button>
+    </div>
+
+  <table class="table table-striped text-center col-md-12">
+    <thead>
+      <tr>
+      <th>Product</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Total</th>
+      <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let product of cartProduct ;let i =index">
+        <td><img [src]="product.item.image" alt="" class="w-75"></td>
+        <td class="w-50">{{product.item.title}}</td>
+        <td>{{product.item.price}}</td>
+        <td >
+          <div class="d-flex">
+            <button class="btn btn-dark" (click)="plusQuantity(i)">+</button>
+          <input type="number" min='1' class="mx-3" [value]="product.amount" (change)="inputChangeQuantity($event,i)">
+          <button class="btn btn-dark "(click)="minusQuantity(i)">-</button>
+          </div>
+        </td>
+        <td>{{product.item.price*product.amount}}</td>
+        <td><button class="btn btn-danger" (click)="deleteProduct(i)">Delete</button></td>
+      </tr>
+    </tbody>
+      <tfoot >
+        <tr  class="border-top border-dark border-2 " >
+          <td></td>
+          <td></td>
+          <td></td>
+          <td> </td>
+          <td class="px-0" style="width:15%">Total : {{total}} LE</td>
+          <td style="width:15%"><button class="btn btn-success " (click)="orderSent=true" [disabled]="cartProduct.length==0||cartProduct==null">Order Now</button></td>
+        </tr>
+      </tfoot>
+
+
+  </table>
+  </div>
+</div>
+<div class="w-75 m-auto p-3 text-success bg-light " *ngIf="orderSent">Well Done! Your Order is successfully sent.</div>

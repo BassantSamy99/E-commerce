@@ -1,0 +1,14 @@
+<div class="my-3" *ngIf="!isLoadng">
+  <div class="categories pt-3" >
+    <app-filter [filterName]="'Categories :'" [categories]="categories" (selectedItem)="chosenCategory($event)"></app-filter>
+  </div>
+  <div class="my-5" >
+    <app-create-product [products]="products"></app-create-product>
+    </div>
+</div>
+
+  <div class="my-5 py-5 d-flex align-items-center justify-content-center" *ngIf="isLoadng">
+    <app-loading></app-loading>
+  </div>
+
+

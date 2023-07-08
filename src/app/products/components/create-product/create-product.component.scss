@@ -1,0 +1,32 @@
+img {
+  width:300px;
+  height:200px;
+  cursor: pointer;
+
+}
+
+h6 {
+  background-color: #ccc;
+  height:100px
+}
+.col-md-4 {
+  border-color: #ccc;
+}
+span {
+
+  color: #842029;
+background-color: #f8d7da;
+border-color: #f5c2c7;
+padding: 5px;
+border-radius: 10px;
+}
+button {
+  color: #fff!important;
+}
+.item{
+  border-radius: 5px;
+}
+
+.item:hover {
+  transform: scale(1.1);
+}

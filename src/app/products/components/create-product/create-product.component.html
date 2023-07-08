@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-3 p-3 " *ngFor="let product of products;let i = index">
+    <div class=" item border border-3 bg-body">
+      <div routerLink = "/productDetail/{{product.id}}">
+        <div class="text-center mb-2 image ">
+          <img  [src]='product.image' alt="" class="w-100">
+        </div>
+        <div >
+          <h6 class="p-3">{{product.title}}</h6>
+          <p class="p-3">Product Description</p>
+        </div>
+      </div>
+
+        <div class="d-flex justify-content-between p-3">
+          <button class=" btn bg-success" *ngIf="!itemAdded[i]" (click)="itemAdded[i]=true" >Add To Cart</button>
+          <div class="w-50 d-flex align-items-center justify-content-between" *ngIf="itemAdded[i]">
+            <input type="number" class="form-control" [(ngModel)]="amount[i]" min="1">
+            <button class="btn btn-success"  (click)="addToCart(product,amount[i]);itemAdded[i]=false">Add</button>
+          </div>
+          <span>{{product.price}} L.E</span>
+        </div>
+    </div>
+    </div>
+
+</div>

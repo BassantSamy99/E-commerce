@@ -1,0 +1,24 @@
+ <div class="row my-5" *ngIf="!isLoading">
+  <div class="col-md-3 ">
+    <div>
+      <img [src]="productDetails.image" alt="" class="img-fluid">
+    </div>
+  </div>
+  <div class="col-md-9">
+    <div class="ms-5">
+      <h3>Category : <span class="h4">{{productDetails.category}}</span></h3>
+      <h3>Title: <span class="h4">{{productDetails.title}}</span></h3>
+      <h3>Description: <span class="h4">{{productDetails.description}}</span></h3>
+      <h3>Rate: <span class="h4">{{productDetails.rating.rate}}</span></h3>
+      <h3>Count: <span class="h4">{{productDetails.rating.count}}</span></h3>
+      <h3>Price : <span class="h4">{{productDetails.price}} LE</span></h3>
+    </div>
+  </div>
+
+</div>
+<div class="text-center mt-5 pt-5">
+  <app-loading  *ngIf="isLoading"></app-loading>
+</div>
+
+
+
